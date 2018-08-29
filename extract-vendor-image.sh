@@ -29,7 +29,7 @@ function cleanup {
 trap cleanup EXIT
 
 
-echo "download and unpack"
+echo "download and unpack factory image"
 declare -r FACTORY_IMAGE="${TEMP_DIR}/factory-image.zip"
 curl "${DOWNLOAD_URL}" -o "${FACTORY_IMAGE}"
 unzip -d "${TEMP_DIR}" "${FACTORY_IMAGE}"
