@@ -6,7 +6,7 @@ extract-vendor-image
 </div>
 
 After upgrading my Nexus 5x to a new [lineageos](https://lineageos.org/) version it may sometimes show me a warning complaining about a vendor image mismatch.
-In order to fix this one has to download the right factory aosp image from [google](https://developers.google.com/android/images), extract the ```vendor.img``` file and flash it.
+In order to fix this one, has to download the right factory aosp image from [google](https://developers.google.com/android/images), extract the ```vendor.img``` file and flash it.
 This bash script automates this process.
 ```
 ./extract-vendor-image.sh opm6.171019.030.h1
