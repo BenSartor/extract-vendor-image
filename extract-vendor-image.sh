@@ -49,6 +49,7 @@ cp "${VENDOR_IMG}" "${DEST_DIR}"
 
 
 echo "SUCCESS use the following commands to flash"
+echo "  adb reboot bootloader"
 echo "  fastboot flash radio ${RADIO_IMG}"
 echo "  fastboot flash bootloader ${BOOTLOADER_IMG}"
 echo "  fastboot flash vendor ${BOOTLOADER_IMG}"
