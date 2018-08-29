@@ -27,3 +27,5 @@ Theoretically this script should work with Nexus and Pixel devices, too. E.g. fo
 DEVICE=angler ./extract-vendor-image.sh opm6.171019.030.h1
 ```
 But as I do not own one, I cannot test it :)
+
+Of course the good old Nexus 5 and other older devices do not need this.
