@@ -2,7 +2,7 @@ extract-vendor-image
 ====================
 
 <div id="screenshots" align="center">
-<img src="https://github.com/BenSartor/extract-vendor-image/raw/readme/screenshot-vendor-image-warning.png" alt="Screenshot vendor image mismatch" text-align="center" width="200">
+<img src="https://github.com/BenSartor/extract-vendor-image/raw/readme/screenshot-vendor-image-warning.png" alt="Screenshot vendor image mismatch" text-align="center" width="400">
 </div>
 
 After upgrading my Nexus 5x to a new [lineageos](https://lineageos.org/) version it may sometimes show me a warning complaining about a vendor image mismatch.
