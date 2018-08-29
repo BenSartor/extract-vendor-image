@@ -29,13 +29,15 @@ function cleanup {
 trap cleanup EXIT
 
 
-echo "download and extract"
+echo "download and unpack"
 declare -r FACTORY_IMAGE="${TEMP_DIR}/factory-image.zip"
 curl "${DOWNLOAD_URL}" -o "${FACTORY_IMAGE}"
 unzip -d "${TEMP_DIR}" "${FACTORY_IMAGE}"
 rm "${FACTORY_IMAGE}"
 unzip -d "${TEMP_DIR}" $(find "${TEMP_DIR}" -name \*.zip)
 
+
+echo "copy files to destination directory"
 cp $(find "${TEMP_DIR}" -name radio-bullhead*.img) "${DEST_DIR}"
 cp $(find "${TEMP_DIR}" -name bootloader*.img) "${DEST_DIR}"
 cp $(find "${TEMP_DIR}" -name vendor*.img) "${DEST_DIR}"
