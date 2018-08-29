@@ -38,6 +38,17 @@ unzip -d "${TEMP_DIR}" $(find "${TEMP_DIR}" -name \*.zip)
 
 
 echo "copy files to destination directory"
-cp $(find "${TEMP_DIR}" -name radio-bullhead*.img) "${DEST_DIR}"
-cp $(find "${TEMP_DIR}" -name bootloader*.img) "${DEST_DIR}"
-cp $(find "${TEMP_DIR}" -name vendor*.img) "${DEST_DIR}"
+declare -r RADIO_IMG=$(find "${TEMP_DIR}" -name radio-*.img)
+cp "${RADIO_IMG}" "${DEST_DIR}"
+
+declare -r BOOTLOADER_IMG=$(find "${TEMP_DIR}" -name bootloader*.img)
+cp "${BOOTLOADER_IMG}" "${DEST_DIR}"
+
+declare -r VENDOR_IMG=$(find "${TEMP_DIR}" -name vendor*.img)
+cp "${VENDOR_IMG}" "${DEST_DIR}"
+
+
+echo "SUCCESS use the following commands to flash"
+echo "  fastboot flash radio ${RADIO_IMG}"
+echo "  fastboot flash bootloader ${BOOTLOADER_IMG}"
+echo "  fastboot flash vendor ${BOOTLOADER_IMG}"
