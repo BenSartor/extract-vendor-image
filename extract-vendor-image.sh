@@ -6,7 +6,7 @@ declare -r DEVICE=${DEVICE:-"bullhead"}
 
 
 echo "guess download url"
-declare -r DOWNLOAD_URL=$(curl https://developers.google.com/android/images | grep "https://dl.google.com/dl/android/aosp/${DEVICE}" | grep "${VENDOR_IMAGE_ID}")
+declare -r DOWNLOAD_URL=$(curl https://developers.google.com/android/images | grep "https://dl.google.com/dl/android/aosp/${DEVICE}" | grep "${VENDOR_IMAGE_ID}" | sed "s/.*href=\"\(.*\.zip\)\"/\1/")
 if [ -z "${DOWNLOAD_URL}" ] ; then
     echo "no download url found => aborting"
     exit 1
