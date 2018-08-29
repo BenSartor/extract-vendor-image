@@ -14,6 +14,9 @@ fi
 echo "using download url: ${DOWNLOAD_URL}"
 
 
+declare -r DEST_DIR="vendor-image-${DEVICE}-${VENDOR_IMAGE_ID}"
+mkdir "${DEST_DIR}"
+echo "created destination directory: ${DEST_DIR}"
 
 
 declare -r TEMP_DIR=$(mktemp --directory --tmpdir extract-vendor-image-XXXXXXXXXX)
@@ -24,10 +27,3 @@ function cleanup {
     rm -rf "${TEMP_DIR}"
 }
 trap cleanup EXIT
-
-
-declare -r DEST_DIR="vendor-image-${DEVICE}-${VENDOR_IMAGE_ID}"
-mkdir "${DEST_DIR}"
-echo "created destination directory: ${DEST_DIR}"
-
-
