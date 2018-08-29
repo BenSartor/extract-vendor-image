@@ -12,6 +12,7 @@ This bash script automates this process.
 ./extract-vendor-image.sh opm6.171019.030.h1
 ```
 Use the vendor image id presented in the warning as parameter.
+
 After succeeding the script will present you the commands to flash the extracted images on your phone.
 ```
 adb reboot bootloader
