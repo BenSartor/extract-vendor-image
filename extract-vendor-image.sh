@@ -5,6 +5,17 @@ declare -r VENDOR_IMAGE_ID=${1:?"usage example: $0 opm6.171019.030.H1"}
 declare -r DEVICE=${DEVICE:-"bullhead"}
 
 
+echo "guess download url"
+declare -r DOWNLOAD_URL=$(curl https://developers.google.com/android/images | grep "https://dl.google.com/dl/android/aosp/${DEVICE}" | grep "${VENDOR_IMAGE_ID}")
+if [ -z "${DOWNLOAD_URL}" ] ; then
+    echo "no download url found => aborting"
+    exit 1
+fi
+echo "using download url: ${DOWNLOAD_URL}"
+
+
+
+
 declare -r TEMP_DIR=$(mktemp --directory --tmpdir extract-vendor-image-XXXXXXXXXX)
 echo "created temporary directory: ${TEMP_DIR}"
 
