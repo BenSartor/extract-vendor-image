@@ -27,3 +27,15 @@ function cleanup {
     rm -rf "${TEMP_DIR}"
 }
 trap cleanup EXIT
+
+
+echo "download and extract"
+declare -r FACTORY_IMAGE="${TEMP_DIR}/factory-image.zip"
+curl "${DOWNLOAD_URL}" -o "${FACTORY_IMAGE}"
+unzip -d "${TEMP_DIR}" "${FACTORY_IMAGE}"
+rm "${FACTORY_IMAGE}"
+unzip -d "${TEMP_DIR}" $(find "${TEMP_DIR}" -name \*.zip)
+
+cp $(find "${TEMP_DIR}" -name radio-bullhead*.img) "${DEST_DIR}"
+cp $(find "${TEMP_DIR}" -name bootloader*.img) "${DEST_DIR}"
+cp $(find "${TEMP_DIR}" -name vendor*.img) "${DEST_DIR}"
